@@ -23,7 +23,7 @@ Setup
 (This application is currently configured to work with a postgres db. However it could be reconfigured to work with other databases.)
 
 **Initialstep:**
-Clone repository then go to clean_server/ and run ’npm install’ and go to scurrent_clean and run ’npm install’
+Clone repository then go to clean_server/ and run ’npm install’ and go to scurrent_clean/ and run ’npm install’
 
 **Database Setup**
 * Step 1. Create postgres databases named ‘seq’ and ‘doctor’
