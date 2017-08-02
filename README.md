@@ -39,3 +39,4 @@ and lastly go to adminScheduler/clean_server/createUserTable and run 'npm instal
  
 Run the server by going to adminScheduler/clean_server/resources/app and running ‘node servertest3.js’
 Finally run the application by going to adminScheduler/scurrent_clean/ and running ’npm run dev’
+(If you are using this application for a different kind of client/admin relationship, for example a law office or tutoring service you may need to make some simple changes. Most of these changes involve changing the names of certain buttons or dialog boxes. Currently the server will automatically append "Dr." and other phrases to suit a doctors office. This string completion can be removed or edited as needed to suit the users desired purpose)
