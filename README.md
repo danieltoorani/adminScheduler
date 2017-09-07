@@ -1,6 +1,10 @@
+
 # adminScheduler
 
 adminScheduler is an application leveraging electron for cross platform compatibility, vue.js for lightning fast UI and full-calendar.io to deliver a premium calendar interface. 
+
+<img width="1440" alt="screen shot 2017-09-06 at 7 58 29 pm" src="https://user-images.githubusercontent.com/29417742/30144273-fa96c1e2-933e-11e7-99ae-7f507661c397.png">
+
 
 **Features**
 * separate client/admin classes
