@@ -1,4 +1,5 @@
-
+*See adminScheduler in action click on "adminScheduler video" link below:*
+[adminScheduler video](https://www.youtube.com/watch?v=LhDaJRz65Sg)
 # adminScheduler
 
 adminScheduler is an application leveraging electron for cross platform compatibility, vue.js for lightning fast UI and full-calendar.io to deliver a premium calendar interface. 
@@ -14,8 +15,7 @@ adminScheduler is an application leveraging electron for cross platform compatib
 * admin can cancel events including accepted requests
 * client can also cancel events but not those of admin users
 
-*To see the Features of this application in action click here:*
-[adminScheduler video](https://www.youtube.com/watch?v=LhDaJRz65Sg)
+
 
 Purpose
 ---
