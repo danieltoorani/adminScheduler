@@ -1,4 +1,4 @@
-# To See a working demo of adminScheduler click below:*
+# Click below to see a working demo of adminScheduler 
 [adminScheduler video](https://www.youtube.com/watch?v=LhDaJRz65Sg)
 # adminScheduler
 
