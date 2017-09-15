@@ -1,6 +1,6 @@
 # Click link below to see a working demo of adminScheduler 
 [adminScheduler video](https://www.youtube.com/watch?v=LhDaJRz65Sg)
-# adminScheduler
+# adminScheduler (Staring this repo is much appreciated)
 
 adminScheduler is an application leveraging electron for cross platform compatibility, vue.js for lightning fast UI and full-calendar.io to deliver a premium calendar interface. 
 
