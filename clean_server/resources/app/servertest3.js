@@ -1,5 +1,7 @@
 var express = require('express'),
     cors = require('cors'),
+    //we use Express, Express is the standard server
+    //framework for Node
     app = express(),
     setupHandlebars  = require('./setupHandlebars.js')(app),
     setupPassport = require('./setupPassport'),
@@ -35,15 +37,20 @@ var express = require('express'),
     app.use('/', appRouter)
 
 var pkid = 0;
-
+//When you have app.use(object) instead of
+// app.use(/thisPath) the app.use(object) runs
+// with everyrequest, whereas the app.use(/thisPath)
+// only runs when that path is requested
+// so app.use(object) is baisically middleware
 app.use(bodyParser.json());
+//body-parser module parses the JSON,  submitted using  HTTP POST request.
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public')); //needed to serve css
 
 app.set('views', __dirname+'/views');
 app.set('view engine', 'ejs');
 
-
+//database objects
 var pes = {
   user: 'postgres', //env var: PGUSER used to be daniel
   database: 'pes2013restore', //env var: PGDATABASE
@@ -73,6 +80,8 @@ var doctorUsers = {//new
 }//new
 
 var curr_letters = "";
+//here we use pg module to interface between 
+//Node and our PostgreSQL database 
 var client = new pg.Client(pes);
 var doc = new pg.Client(doctor);
 var users = new pg.Client(doctorUsers);
@@ -81,6 +90,9 @@ users.connect();
 client.connect();
 
 //used to deal with CORS
+// A user makes a cross-origin HTTP request
+//when it requests a resource from a different domain, protocol, or port 
+//than the one from which the current document originated.
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -90,8 +102,8 @@ app.use(function(req, res, next) {
 app.post('/what', function(req,res){
   res.send(req.query.username);
 });
-
-
+//there is a table for requests and for operations
+//deletes a specific request
 app.post('/removeRequest', function(req,res){
   console.log("reached remove request")
   var pkid = req.query.pkid;
@@ -99,7 +111,7 @@ app.post('/removeRequest', function(req,res){
   res.send("request removed");
 });
 
-//clearR clears requests
+//clearR clears requests for a user
 app.post('/clearR', function(req,res){
   var id = req.query.user;
   doc.query("DELETE FROM request WHERE userid="+id+" AND update ='cancelled'");
@@ -112,6 +124,9 @@ app.delete('/remove', function(req,res){
   client.query("DELETE FROM esloc WHERE pkid="+req.query.pkid+"");
   res.send(req.query.pkid);
 });
+//this will take care of removing a 
+//event from the calendar when a user clicks
+//on it to remove
 app.get('/removeAppointments', function(req,res){
   //delete specified record based of pkid
   pkid = req.query.id;
@@ -148,13 +163,15 @@ app.get('/removeAppointments', function(req,res){
       res.send(json);
   })
 });
+//this is called when Doctor accepts a request
+// that conflicts with a prior event
 app.post('/updateRequest', function(req,res){
   var update = req.query.update;
   var pkid = req.query.pkid;
   doc.query("UPDATE request SET update = '"+update+"' WHERE pkid = '"+pkid+"'")
     res.send("hi");
 })
-
+//
 app.get('/getOperation', function(req,res){
     var pkid = req.query.pkid;
     var mystr = "SELECT * FROM operations WHERE (pkid='"+pkid+"') "
@@ -173,8 +190,7 @@ app.get('/getOperation', function(req,res){
     })
 
 })
-//whichDoc updates a users docId value to have the same value as the users own id
-//this is needed to make determintations about what content to serve the end user
+
 app.post('/whichDoc', function(req,res){
   var user = req.query.user;
   var docId = req.query.docId;
@@ -193,6 +209,8 @@ app.post('/whichDoc', function(req,res){
   })
 
 });
+
+//this fetches the events to be displayed on the calendar
 app.get('/getAppointments', function(req,res){
   var id = req.query.id;
   var JSON1;
