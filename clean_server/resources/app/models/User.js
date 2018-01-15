@@ -1,5 +1,5 @@
 var Sequelize = require('sequelize')
-
+//establish connection to User table with sequelize connection
 var attributes = {
   username: {
     type: Sequelize.STRING,
