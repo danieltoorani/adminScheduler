@@ -15,10 +15,10 @@ var passport = require('passport'),
     }//new
     var doc = new pg.Client(doctor);//new
     doc.connect();//new
-module.exports = function(express) {
-  var router = express.Router()
-  var cors = require('cors')
-  router.use(cors());
+    module.exports = function(express) {
+       var router = express.Router()
+       var cors = require('cors')
+       router.use(cors());
     router.use(function(req, res, next) {
       res.header("Access-Control-Allow-Origin", "*");
       res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
