@@ -109,7 +109,8 @@ var passport = require('passport'),
     })
 
   router.post('/login', function(req, res, next) {
-    passport.authenticate('local', function(err, user, info) {
+  //local specifies that we use the local strategy  
+  passport.authenticate('local', function(err, user, info) {
       req.logIn(user, function(err) {
         if (err) { res.send('error')}
        else{//return res.redirect('/users/' + user.username);
