@@ -4,6 +4,7 @@ var passport = require('passport'),
     Model = require('./models/models.js')
 
 module.exports = function(app) {
+  //here we are adding the passport middleware to express
   app.use(passport.initialize()) //needed to support express
   app.use(passport.session())// for express
   
