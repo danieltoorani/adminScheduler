@@ -14,7 +14,7 @@ module.exports.signup = function(req, res) {
   var username = req.query.username
   var password = req.query.password
   var password2 = req.query.password2
-
+  //create the hashed password
   var salt = bcrypt.genSaltSync(10)
   var hashedPassword = bcrypt.hashSync(password, salt)
 
@@ -24,7 +24,7 @@ module.exports.signup = function(req, res) {
     password: hashedPassword
   }
 
-  Model.User.create(newUser).then(function() { //.create will create a new record using the given input
+  Model.User.create(newUser).then(function() { //.create will create a new record using the given input using sequelize
   res.send('success');
   console.log('did it')
   }).catch(function(error) {
