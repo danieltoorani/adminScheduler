@@ -16,7 +16,7 @@ function createWindow () {
     height: 600,
     width: 800
   })
-  //this will load our index.ejs file
+  //this will load our index.ejs file into our browser window
   mainWindow.loadURL(winURL)
 
   mainWindow.on('closed', () => {
