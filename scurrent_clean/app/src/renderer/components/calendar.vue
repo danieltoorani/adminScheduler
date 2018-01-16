@@ -282,7 +282,7 @@ const self = this;
 export default {
   name: 'calendar',
   data() {
-  //will return variables we want to use in our Calendar Component
+  // data will return variables we want to use in our Calendar Component
     return {
     //eventSources used to fetch events from server
      eventSources: [
