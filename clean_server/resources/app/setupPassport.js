@@ -7,7 +7,7 @@ module.exports = function(app) {
   //here we are adding the passport middleware to express
   app.use(passport.initialize()) //needed to support express
   app.use(passport.session())// for express
-  
+  //when we use 'local' we are referring to this local strategy
   passport.use(new LocalStrategy(
     function(username, password, done) {
      //checks if there is a user with that username
