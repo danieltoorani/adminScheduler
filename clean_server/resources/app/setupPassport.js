@@ -21,7 +21,11 @@ module.exports = function(app) {
         }
 
         var hashedPassword = bcrypt.hashSync(password, user.salt)
-
+        //hashing algo will always create same output when given the same input.
+        //you cannot go backwords from a hashed string to uncover original 
+        //string.
+        //salt protects from 
+        //dictionary attacks (trying common passwords) and bruteforce attacks
       //  console.log(user.id);
 
         //check if password matched password in DB
