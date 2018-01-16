@@ -25,8 +25,10 @@ module.exports = function(app) {
         //you cannot go backwords from a hashed string to uncover original 
         //string.
         //salt protects from 
-        //dictionary attacks (trying common passwords) and bruteforce attacks
-      //  console.log(user.id);
+        //rainbow tables (table containing common passwords and their hashes)
+        //works because rainbow table does not know the salt
+        //salt does not offer protection from
+        //bruteforce or dictionary (focus on hashing common passwords) attacks
 
         //check if password matched password in DB
         if (user.password === hashedPassword) {
