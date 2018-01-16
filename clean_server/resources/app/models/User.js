@@ -1,5 +1,6 @@
 var Sequelize = require('sequelize')
-//establish connection to User table with sequelize connection
+//Sequelize needed for sequelize strings
+//
 var attributes = {
   username: {
     type: Sequelize.STRING,
