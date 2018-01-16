@@ -7,6 +7,7 @@ const winURL = process.env.NODE_ENV === 'development'
   ? `http://localhost:${require('../../../config').port}`
   : `file://${__dirname}/index.html`
 
+//create browser window
 function createWindow () {
   /**
    * Initial window options
@@ -15,7 +16,7 @@ function createWindow () {
     height: 600,
     width: 800
   })
-
+  //this will load our index.ejs file
   mainWindow.loadURL(winURL)
 
   mainWindow.on('closed', () => {
@@ -25,7 +26,7 @@ function createWindow () {
   // eslint-disable-next-line no-console
   console.log('mainWindow opened')
 }
-
+//when app is ready run create window
 app.on('ready', createWindow)
 
 app.on('window-all-closed', () => {
