@@ -86,7 +86,7 @@ var passport = require('passport'),
         specialty: specialty,
       }
 
-      Model.User.create(newUser).then(function() { //.create will create a new record using the given input
+      Model.User.create(newUser).then(function() { //.create will create a new record using the given input using sequelize
     var mystr = "SELECT MAX(id) FROM users";
     var query = doc.query(mystr);
     query.on("row", function (row, result) {
@@ -109,7 +109,8 @@ var passport = require('passport'),
     })
 
   router.post('/login', function(req, res, next) {
-  //local specifies that we use the local strategy  
+  //local specifies that we use the local strategy 
+  //show local strategy
   passport.authenticate('local', function(err, user, info) {
       req.logIn(user, function(err) {
         if (err) { res.send('error')}
