@@ -24,7 +24,7 @@ const router = new Router({
   scrollBehavior: () => ({ y: 0 }),
   routes
 })
-
+//creates new Vue using my App.vue file
 new Vue({
   store,
   router,
